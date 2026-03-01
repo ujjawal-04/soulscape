@@ -83,7 +83,9 @@ soulscape/
 │       └── westbengal/               # West Bengal (4 images)
 ├── src/
 │   └── app/
-│       ├── components/               # Reusable components (Header, Footer)
+│       ├── components/               # Reusable components
+│       │   ├── Header.jsx           # Navigation header with theme toggle
+│       │   └── Footer.jsx           # Footer with links and social media
 │       ├── data/
 │       │   └── famous_places_india.json  # Database of all tourist places
 │       ├── destinations/
@@ -319,6 +321,45 @@ emailjs.send(
 - Grouped results by state
 - Image blur placeholders
 - Responsive grid layout
+
+### **4. Header Component**
+
+**Features:**
+- Sticky navigation bar with backdrop blur
+- Dark/light theme toggle
+- Responsive mobile menu
+- Animated brand logo
+- Navigation links with hover effects
+- Mobile hamburger menu
+
+**State Management:**
+```javascript
+const [mounted, setMounted] = useState(false)
+const { theme, setTheme } = useTheme()
+const [isMenuOpen, setIsMenuOpen] = useState(false)
+```
+
+**Menu Items:**
+- About (anchor link)
+- Contact (anchor link)
+- Destinations (route)
+
+### **5. Footer Component**
+
+**Features:**
+- Brand information with tagline
+- Social media links (Facebook, Twitter, Instagram)
+- Quick links (Explore, Support sections)
+- Contact information display
+- Copyright notice
+- Privacy and cookie policy links
+- Animated scroll reveal effects
+- Responsive grid layout
+
+**Contact Info Display:**
+- Location: India
+- Email: info@soulscape.com
+- Phone: +91 XXX XXX XXXX
 
 ---
 
@@ -566,13 +607,12 @@ module.exports = {
 
 ## 🐛 Known Issues & Limitations
 
-1. **Header/Footer Missing** - Components referenced but not found
-2. **EmailJS Keys Exposed** - Public keys in client-side code
-3. **No Error Boundaries** - App crashes on errors
-4. **Limited Error Handling** - Network failures not handled
-5. **No Loading States** - Some async operations lack feedback
-6. **SEO Limited** - Missing meta tags and structured data
-7. **Accessibility** - Some ARIA labels missing
+1. **EmailJS Keys Exposed** - Public keys in client-side code
+2. **No Error Boundaries** - App crashes on errors
+3. **Limited Error Handling** - Network failures not handled
+4. **No Loading States** - Some async operations lack feedback
+5. **SEO Limited** - Missing meta tags and structured data
+6. **Accessibility** - Some ARIA labels missing
 
 ---
 
